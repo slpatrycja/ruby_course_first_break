@@ -107,8 +107,16 @@ def queue_time(customers, val)
 	checkouts.max
 
 end
+# puts queue_time([2,3,10], 3)
 
-puts queue_time([2,3,10], 3)
+def consecutives_sum(array)
+	array = array.slice_when { |a,b| a!=b }.map { |e| [e.first*e.length] }.flatten
+	array
+end
+ # print consecutives_sum([1,4,4,4,0,4,3,3,1])
+
+
+
 
 
 
