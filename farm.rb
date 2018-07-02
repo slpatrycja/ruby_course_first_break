@@ -47,4 +47,8 @@ arr = []
 arr.push(cat,dog,duck)
 farm = Farm.new(arr)
 
-farm.give_sounds
+# farm.give_sounds
+
+
+
+
