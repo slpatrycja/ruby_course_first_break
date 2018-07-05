@@ -1,5 +1,5 @@
 def initials(string)
-	string.split.map { |word| word = word[0].upcase}.join
+	string.split.map { |word| word[0].upcase}.join
 end
 
 # puts initials('marcin nowak')
@@ -29,14 +29,25 @@ end
 
 # puts middle_char("tesTing")
 
-
 def accum(string)
-	array = []
-	for i in 0...string.length
-		array.push((string[i]*(i+1)).capitalize)
-	end
-
-	array.join("-")
+	string.chars.map.with_index { |letter, i| (letter*(i+1)).capitalize }.join("-")
 end
 
-# puts accum("cwAt")
+# def accum(string)
+# 	array = []
+# 	for i in 0...string.length
+# 		array.push((string[i]*(i+1)).capitalize)
+# 	end
+
+# 	array.join("-")
+# end
+
+ # puts accum("cwAt")
+
+def complementary_DNA(string)
+	string.chars.each_slice(2).map { |e| e.reverse }.join
+end
+puts complementary_DNA("ATTA")
+
+
+

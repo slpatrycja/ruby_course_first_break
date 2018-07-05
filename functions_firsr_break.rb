@@ -22,9 +22,7 @@ end
 def hamming_distance(str1, str2)
 	return nil if str1.length != str2.length
 	distance = 0
-	for i in 0...str1.length
-		distance +=1 if str1[i] != str2[i]
-	end
+	str1.length.times { |i| distance +=1 if str1[i] != str2[i] }
 	distance
 end
 
@@ -38,9 +36,7 @@ def pangram?(string)
 			alphabet.delete(string[i]) 
 		end
 	end
-
-	return true if alphabet.empty?
-	return false
+	alphabet.empty?
 end
 
 # puts pangram?('Dość błazeństw, żrą mój pęk luźnych fig')
@@ -54,28 +50,22 @@ end
 # print word_count("FOo foo bar bar")
 
 def leap_year?(year)
-	return true if (year%4 == 0 && year%100!=0) || year%400==0
-	return false
-
+	(year%4 == 0 && year%100!=0) || year%400==0
 end
 
 
-# puts leap_year?(2100)
+# puts leap_year?(2004)
 
 def leap_years(array)
-	leap_array = []
-	array.each { |year| leap_array.push(year) if leap_year?(year) }
-	leap_array
+	array.select { |year| leap_year?(year) }
 end
 
 # print leap_years((2000..2100).to_a)
 
 def palindrom?(string)
-	return true if string.downcase.split.join("")  == string.downcase.split.map { |e| e.reverse }.reverse.join("")
-	return false
+	string.downcase.split.join("")  == string.downcase.split.map { |e| e.reverse }.reverse.join("")
 end
-
-# puts palindrom?('Kobyła ma mały bok')
+puts palindrom?('Kobyła ma mały bok')
 
 def backspaces(string)
 	string = string.chars
